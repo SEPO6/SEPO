@@ -1,0 +1,12 @@
+우선적으로 django랑 mysql db 연결을 해야함.
+
+그리고 apache 웹서버가 sql injection 과정에서 mysql내에 있는 db에 접근할 때 필요하므로
+아무 db를 만들고 웹사이트를 만들어 php파일을 통해 잘 작동되는지 확인
+
+
+html 파일이 일단 생성되어야 db를 우선적으로 접근할 수 있기에 웹사이트의 구축이 우선되야할 듯!
+구축을 하면서 db에 연결을 동시적으로 작업할 예정
+
+<이번 주 할 일>
+1. django mysql 연결
+2. apache 설치 확인 및 sql injection이 가능한 환경 설정
