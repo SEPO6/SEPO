@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>SepoLecture</title>
+  <link rel="stylesheet" type="text/css" href="{% static 'login-header-menu.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'lecture.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'wrapper.css' %}">
+  <style>
+    .button {
+      height: 40px;
+      width: 60px;
+      background: #CCE1FF;
+      border: 0px;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="login">
+    <a href="LoginPage.html" class="loginBar" style="margin-right:4px; text-decoration:none;">로그인</a>
+    <a href="SignUp.html" class="loginBar" style="text-decoration: none;">회원가입</a>
+  </div>
+  <div class="header">
+    <a href="MainPage.html" title="Sepo"><img id="mainLogo" src="{% static 'logo_typeB_1.png' %}"></img></a>
+  </div>
+  <div class="menu">
+    <a href="Lecture.html" class="menuBar">Lecture</a>
+    <a href="Rank.html" target="_blank" class="menuBar">Rank</a>
+    <a href="community.html" class="menuBar">Community</a>
+    <a href="community.html" class="menuBar">Q & A</a>
+    <a class="menuBarExit">Help</a>
+  </div>
+  <div class="wrapper">
+    <div class="lecture">
+      <h2 style="margin-top: 0px; font-weight: normal; padding-bottom: 15px; padding-bottom: 15px; border-bottom: 1px dotted #8992a3;">
+        <a href="Lecture.html" style="text-decoration: none;">강의</a>
+      </h2>
+      <ol type="a" style="list-style: none; padding-left: 1px;">
+        <li class="lectureList"><a>강의제목</a></li>
+        <li class="lectureList"><a>강의제목</a></li>
+        <li class="lectureList"><a>강의제목</a></li>
+        <li class="lectureList"><a>강의제목</a></li>
+        <li class="lectureList"><a>강의제목</a></li>
+        <li class="lectureList"><a>강의제목</a></li>
+        <li class="lectureList"><a>강의제목</a></li>
+        <li class="lectureList"><a>강의제목</a></li>
+        <li class="lectureList"><a>강의제목</a></li>
+        <li class="lectureList"><a>강의제목</a></li>
+      </ol>
+    </div>
+    <div class="lecturePage">
+      <h2>첫번째 강의</h2>
+      <h3>이 강의에 대한 설명</h3>
+      <div style="margin-bottom: 410px;">
+        여기 공간은 알아서 사용하셈~~~
+      </div>
+        <input class="button" type="button" value="이전">
+        <input class="button" type="button" value="다음" style="margin-left: 593px;">
+    </div>
+  </div>
+
+  <div class="footer">
+    <ul style="margin-top: 15px; margin-bottom: 3px;">2018 Object-Oriented Programming</ul>
+    <ul style="margin-top: 3px; margin-bottom: 3px;">copyright@Group6Sepo</ul>
+  </div>
+
+</body>
+
+</html>

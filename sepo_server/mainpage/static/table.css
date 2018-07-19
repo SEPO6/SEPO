@@ -1,0 +1,30 @@
+table.type02 {
+  border-spacing: 0;
+  text-align: center;
+  line-height: 1.5;
+  margin: 20px 10px;
+  margin-top: 0px;
+  border: 0px;
+}
+
+table.type02 th {
+  width: 150px;
+  padding: 4px;
+  font-weight: bold;
+  vertical-align: top;
+  border-bottom: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-left: 3px solid white;
+  border-right: 3px solid white;
+  background-color: white;
+}
+
+table.type02 td {
+  width: 350px;
+  padding: 4px;
+  border-top: 1px solid #ccc;
+  vertical-align: top;
+  border-bottom: 1px solid #ccc;
+  border-left: 3px solid white;
+  border-right: 3px solid white;
+}

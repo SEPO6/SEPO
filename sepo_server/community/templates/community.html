@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Sepo</title>
+  <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="{% static 'login-header-menu.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'lecture.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'mainPage-style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'wrapper.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'table.css' %}">
+  <style>
+@import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
+a:link    {color:black; background-color:transparent; text-decoration:none}
+a:visited {color:black; background-color:transparent; text-decoration:none}
+a:hover   {color:black; background-color:transparent; text-decoration:none}
+body {
+    font-family: "Nanum Gothic", sans-serif;}
+
+    .boardBox {
+      box-shadow: -4px -4px white, -8px -8px #C8D7FF, 4px 4px white, 8px 8px #CCE1FF;
+      border-radius: 20px;
+      width: 700px;
+      height: 600px;
+      margin: auto;
+      margin-top: 100px;
+      margin-bottom: 100px;
+      text-align: center;
+    }
+
+    .lectureTable {
+      margin: auto;
+      text-align: center;
+      line-height: 1.5;
+      margin-top: 0px;
+      border: 1px solid #C8D7FF;
+      padding-bottom: 10px;
+      border-radius: 5px;
+      color: #6e6c6c;
+      font-size: 14px;
+    }
+
+    table.lectureTable th {
+      padding: 4px;
+      vertical-align: top;
+      border: 0px;
+      text-align: center;
+      font-weight: normal;
+    }
+
+    table.lectureTable td {
+      padding: 4px;
+      border: 0px;
+      text-align: left;
+    }
+
+    .boardButton {
+      display: inline-block;
+      padding-top: 20px;
+      margin: auto;
+
+    }
+
+    .bButton {
+
+      height: 20px;
+      width: 30px;
+      background: #CCE1FF;
+      border: 0px;
+      border-radius: 4px;
+
+    }
+  </style>
+</head>
+
+<body>
+   <div class="login">
+{% if User.is_active %}
+    <a class="loginBar" style="margin-right:4px;">{{ User.id }}</a>
+
+{% else %}
+    <a href="http://141.223.163.207:8000/user/login" class="loginBar" style="margin-right:4px;">로그인</a>
+    <a href="http://141.223.163.207:8000/user/join" class="loginBar">회원가입</a>
+
+{% endif %}
+    </div>
+  <div class="header">
+    <a href="http://141.223.163.207:8000/" title="Sepo"><img id="mainLogo" src="{% static 'logo_typeB_1.png' %}"></img></a>
+  </div>
+  <div class="menu">
+    <a href="http://141.223.163.207:8000/post/view/1/" class="menuBar">Lecture</a>
+    <a href="Rank.html" target="_blank" class="menuBar">Rank</a>
+    <a href="http://141.223.163.207:8000/community/" class="menuBar">Community</a>
+
+    <a href="community.html" class="menuBar">Q & A</a>
+  </div>  
+  <div class="boardBox">
+    <h2 style="margin-left: 30px; margin-right: 30px; padding-top:20px;">Board</h2>
+    <table class="lectureTable">
+      <tr style="length: 0px;">
+        <th scope="row" style="border-top: 0px; width: 50px;"></th>
+        <td style="border-top: 0px; width: 382px;"></td>
+        <td style="border-top: 0px; width: 90px;"></td>
+        <td style="border-top: 0px; width: 150px;"></td>
+      </tr>
+      <tr>
+        <th scope="row">글번호</th>
+        <td>글 제목</td>
+        <td>작성자</td>
+        <td>작성일</td>
+      </tr>
+{% for post in posts %}
+     <tr>
+        <th scope="row">{{ post.id }}</th>
+        <td><a href="{% url 'community_view' pk=post.pk %}">{{ post.title }}</a></td>
+        <td>{{ post.author }}</td>
+        <td>{{ post.published_date.year }}/{{ post.published_date.month }}/{{ post.published_date.day }}</td>
+      </tr>
+{% endfor %}
+       </table>
+    <div class="boardButton">
+      <input type="button" class="bButton" value="1">
+      <input type="button" class="bButton" value="2">
+      <input type="button" class="bButton" value="3">
+      <input type="button" class="bButton" value="4">
+      <input type="button" class="bButton" value="5">
+    </div>
+   <div>
+      <input type="button" class="bButton" value="글쓰기" onClick="location.href='{% url 'community_write' %}'">
+   </div>
+  </div>
+  <div class="footer">
+    <ul style="margin-top: 15px; margin-bottom: 3px;">2018 Object-Oriented Programming</ul>
+    <ul style="margin-top: 3px; margin-bottom: 3px;">copyright@Group6Sepo</ul>
+  </div>
+
+</body>
+
+
+</html>

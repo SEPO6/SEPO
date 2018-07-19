@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+{% load static %}
+<head>
+  <meta charset="utf-8">
+  <title>Sepo</title>
+  <link rel="stylesheet" type="text/css" href="{% static 'login-header-menu.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'lecture.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'mainPage-style.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'wrapper.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'table.css' %}">
+  <style>
+  
+  @import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
+a:link    {color:black; background-color:transparent; text-decoration:none}
+a:visited {color:black; background-color:transparent; text-decoration:none}
+a:hover   {color:black; background-color:transparent; text-decoration:none}
+body {
+    font-family: "Nanum Gothic", sans-serif;
+}
+
+    .something{
+      box-shadow: -4px -4px white, -8px -8px #C8D7FF, 4px 4px white,8px 8px #CCE1FF;
+      border-radius: 20px;
+      width: 700px;
+      height: 600px;
+      margin: auto;
+      margin-top: 100px;
+      margin-bottom: 100px;
+    }
+
+  </style>
+</head>
+
+<body>
+  <div class="login">
+    <a href="LoginPage.html" class="loginBar" style="margin-right:4px;">로그인</a>
+    <a href="SignUp.html" class="loginBar">회원가입</a>
+  </div>
+  <div class="header">
+    <a href="MainPage.html" title="Sepo"><img id="mainLogo" src="{% static 'logo_typeB_1.png' %}"></img></a>
+  </div>
+  <div class="menu">
+    <a href="Lecture.html" class="menuBar">Lecture</a>
+    <a href="Rank.html" target="_blank" class="menuBar">Rank</a>
+    <a href="community.html" class="menuBar">Community</a>
+    <a href="community.html" class="menuBar">Q & A</a>
+  </div>
+  <div class="something">
+	<form action = "" method = "POST">
+		{% csrf_token %}
+		{{ form.media }}
+		{{ form }}
+		<input type="submit" value="save">
+	</form>
+
+  </div>
+  <div class="footer">
+    <ul style="margin-top: 15px; margin-bottom: 3px;">2018 Object-Oriented Programming</ul>
+    <ul style="margin-top: 3px; margin-bottom: 3px;">copyright@Group6Sepo</ul>
+  </div>
+
+</body>
+
+
+</html>

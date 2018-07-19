@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+
+{% load static %}
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Sepo</title>
+    <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static 'login-header-menu.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'lecture.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'mainPage-style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'wrapper.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'table.css' %}">
+    <style>
+@import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
+a:link    {color:black; background-color:transparent; text-decoration:none}
+a:visited {color:black; background-color:transparent; text-decoration:none}
+a:hover   {color:black; background-color:transparent; text-decoration:none}
+body {
+    font-family: "Nanum Gothic", sans-serif;}
+
+
+        .posts_list{
+            box-shadow: -4px -4px white, -8px -8px #C8D7FF, 4px 4px white,8px 8px #CCE1FF;
+            border-radius: 20px;
+            width: 700px;
+            height: 600px;
+            margin: auto;
+            margin-top: 100px;
+            margin-bottom: 100px;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="login">
+        <a href="http://141.223.163.207:8000/user/login" class="loginBar" style="margin-right:4px;">로그인</a>
+        <a href="http://141.223.163.207:8000/user/join" class="loginBar">회원가입</a>
+    </div>
+    <div class="header">
+        <a href="MainPage.html" title="Sepo"><img id="mainLogo" src="{% static 'logo_typeB_1.png' %}"></img></a>
+    </div>
+    <div class="menu">
+        <a href="http://141.223.163.207:8000/post/view/1" class="menuBar">Lecture</a>
+        <a href="http://141.223.163.207:8000/rank/" target="_blank" class="menuBar">Rank</a>
+        <a href="http://141.223.163.207:8000/community/" class="menuBar">Community</a>
+        <a href="http://141.223.163.207:8000/" class="menuBar">Q & A</a>
+    </div>
+    <div class="posts_list">
+        <div>
+           {{ post.text }}
+        </div>
+    </div>
+    <div class="footer">
+        <ul style="margin-top: 15px; margin-bottom: 3px;">2018 Object-Oriented Programming</ul>
+        <ul style="margin-top: 3px; margin-bottom: 3px;">copyright@Group6Sepo</ul>
+    </div>
+
+</body>
+
+</html>

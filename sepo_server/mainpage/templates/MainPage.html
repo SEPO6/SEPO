@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Sepo</title>
+  <link href="https://fonts.googleapis.com/css?family=Sunflower:300" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="{% static 'login-header-menu.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'lecture.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'mainPage-style.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'wrapper.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'table.css' %}">
+<style>
+@import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
+a:link    {color:black; background-color:transparent; text-decoration:none}
+a:visited {color:black; background-color:transparent; text-decoration:none}
+a:hover   {color:black; background-color:transparent; text-decoration:none}
+body {
+    font-family: "Nanum Gothic", sans-serif;}
+    </style>
+  </head>
+
+<body>
+  <div class="login">
+
+    <a href="http://141.223.163.207:8000/user/login" class="loginBar" style="margin-right:4px;">로그인</a>
+    <a href="http://141.223.163.207:8000/user/join" class="loginBar">회원가입</a>
+
+    </div>
+  <div class="header">
+    <a href="http://141.223.163.207:8000/" title="Sepo"><img id="mainLogo" src="{% static 'logo_typeB_1.png' %}"></img></a>
+  </div>
+  <div class="menu">
+    <a href="http://141.223.163.207:8000/post/view/1/" class="menuBar">Lecture</a>
+    <a href="{% url 'ranking_list_view' %}" target="_blank" class="menuBar">Rank</a>
+    <a href="http://141.223.163.207:8000/community/" class="menuBar">Community</a>
+  </div>
+  <div class="wrapper">
+    <div class="lecture">
+      <h2>
+        <a href="http://141.223.163.207:8000/post/view/1/">강의목록</a>
+      </h2>
+     <strong><ol type="a" style="list-style: none; padding-left: 1px; font-size: 13px">
+{% for lecture in lecdata %}
+        <li class="lectureList"><a href="{% url 'post_view' pk=lecture.pk %}">{{ lecture.title }}</a></li>
+{% endfor %}
+        </ol></strong>
+    </div>
+    <div class="main">
+      <div class="mainElement">
+        <img src="{% static 'padlock.png' %}" height=auto width=auto style="position: relative;"></img>
+        <div id='write' class='is-node'>
+          <p>안녕하세요, SEPO에 오신 것을 환영합니다!</p>
+          <p><strong>SEPO</strong>는 <strong>SE</strong>curity <strong>PO</strong>stech 의 약자로, 교내 구성원들의 컴퓨터 보안 의식을 고취시킬 뿐만 아니라, </p>
+           <p>보다 실질적인 도움을 주고자 태어났습니다.</p>
+           <p>&nbsp;</p>
+           <p><strong>SEPO</strong>에서는 공격 기술을 알아야 방어를 할 수 있다는 철학을 바탕으로,</p>
+           <p>보안과 관련된 양질의 강의와, 배운 내용을 점검, 응용해 볼 수 있는 연습문제들을 제공합니다.</p>
+            <p>앞으로도 다양하고 수준 높은 강의와 문제들이 업데이트될 예정이오니, </p>
+           <p>타 사이트에서 쉽게 접하기 어려웠던 기초 보안 지식들을 <strong>SEPO</strong>에서 효율적으로 학습하세요! </p>
+           <p>감사합니다.</p>
+            <p>&nbsp;</p>
+           <p>객체지향프로그래밍 프로젝트 6조</p>
+            <p>고진호, 권동현, 이승록, 주효진, 전현 올림.</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+          </div>
+      </div>
+    </div>
+
+    <div class="rank">
+      <a href="Rank.html" target="_blank"><h2>순위</h2></a>
+      <table class="type01">
+        <tr style="length:0px;">
+          <th scope="row" style="border-top: 0px; width: 60px;"></th>
+          <td style="border-top: 0px; width: 130px;"></td>
+          <td style="border-top: 0px; width: 60px;"></td>
+        </tr>
+        <tr>
+          <th scope="row">RANK</th>
+          <td>ID</td>
+          <td>점수</td>
+        </tr>
+{% for rank in rankdata %}
+        <tr>
+        <th scope="row">{{ rank.ranking }}</th>
+          <td>{{ rank.username }}</td>
+          <td>{{ rank.score }}</td>
+        </tr>
+{% endfor %}
+      </table>
+
+    </div>
+    <div class="qna">
+      <h2><a href="http://141.223.163.207:8000/community/">커뮤니티</h2></a>
+      <table class="type01">
+        <tr style="length:0px;">
+          <th scope="row" style="border-top: 0px; width: 90px;"></th>
+          <td style="border-top: 0px; width: 140px;"></td>
+          <td style="border-top: 0px; width: 30px;"></td>
+        </tr>
+        <tr>
+          <th scope="row">글번호</th>
+          <td>글제목</td>
+          <td>날짜</td>
+        </tr>
+{% for post in commudata %}
+        <tr>
+          <th scope="row">{{ post.id }}</th>
+        <td><a href="{% url 'community_view' pk=post.pk %}">{{ post.title }}</a></td>
+          <td>{{ post.published_date.year }}/{{ post.published_date.month }}/{{ post.published_date.day }}</td>
+        </tr>
+{% endfor %}
+      </table>
+    </div>
+  </div>
+  </div>
+
+  <div class="footer">
+    <ul style="margin-top: 15px; margin-bottom: 3px;">2018 Object-Oriented Programming</ul>
+    <ul style="margin-top: 3px; margin-bottom: 3px;">copyright@Group6Sepo</ul>
+  </div>
+
+
+</body>
+
+</html>
